@@ -6,7 +6,8 @@ import FareInfo from './FareInfo';
 import YourFlight from './YourFlight';
 import Filter from './Filter';
 import SearchFlight from './SearchFlight';
-const FlightSchedule = ({ dataFlight }) => {
+import PaginationFlight from './PaginationFlight';
+const FlightSchedule = ({ dataFlight, dataAnotherFlight, page, nopage, setPage }) => {
 
     return (
         <>
@@ -35,7 +36,7 @@ const FlightSchedule = ({ dataFlight }) => {
                                     {/*FARE INFO*/}
                                     <FareInfo dataFlight={dataFlight} />
                                     {/* FLIGHT ANOTHER */}
-                                    <FlightSchedule2 />
+                                    <FlightSchedule2 dataAnotherFlight={dataAnotherFlight}/>
                                 </Col>
                             </Row>
                         </Col>
@@ -47,6 +48,9 @@ const FlightSchedule = ({ dataFlight }) => {
                                 </Col>
                             </Row>
                         </Col>
+                    </Row>
+                    <Row>
+                        <PaginationFlight page={page} nopage={nopage} setPage={setPage} />
                     </Row>
                 </Container >
             </div>

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import { Container, Row, Col, Label, Card, CardTitle, CardBody, CardText } from "reactstrap"
 import { Button, Checkbox, Menu, MenuItem, Select, TextField } from '@mui/material'
-import radio1 from '../../assets/radio.png'
-import radio2 from '../../assets/new-moon.png'
+import { Link } from 'react-router-dom'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
+import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import HeaderHome from "../header/HeaderHome"
 const HomeComponent = () => {
 
@@ -52,7 +53,7 @@ const HomeComponent = () => {
             <Container fluid className="bg">
                 <Row>
                     <Col xs='6'>
-                        <Row style={{ marginTop: 150 }}>
+                        <Row style={{ marginTop: 250 }}>
                             <Col xs={{ size: 'auto', offset: 2 }}>
                                 <h1 className="font-home">
                                     Hello!<br />
@@ -68,11 +69,15 @@ const HomeComponent = () => {
                         <Col xs={{ size: 'auto' }} style={{ color: 'black', borderRadius: 10, background: 'white' }}>
                             <Row className="mt-2 p-2">
                                 <Col xs='auto'>
-                                    <img src={radio2} alt='a' style={{ width: 20, height: 20, marginRight: 5 }} />
+                                    <Checkbox
+                                        icon={<RadioButtonUncheckedIcon />}
+                                        checkedIcon={<RadioButtonCheckedIcon style={{ color: '#4D46FA' }} />}></Checkbox>
                                     <Label className="font-content">One way/ Round trip</Label>
                                 </Col>
                                 <Col xs='auto'>
-                                    <img src={radio1} alt='a' style={{ width: 20, height: 20, marginRight: 5 }} />
+                                    <Checkbox
+                                        icon={<RadioButtonUncheckedIcon />}
+                                        checkedIcon={<RadioButtonCheckedIcon style={{ color: '#4D46FA' }} />}></Checkbox>
                                     <Label className="font-content">Multi-city</Label>
                                 </Col>
                                 <Col xs='auto'>
@@ -208,10 +213,12 @@ const HomeComponent = () => {
                             </Row>
                             <Row className="mt-2 p-2">
                                 <Col style={{ textAlign: 'right' }}>
-                                    <Button variant='contained' style={{ borderRadius: 12, backgroundColor: '#4D46FA', width: 200, height: 60, position: 'absolute', right: 100 }} onClick={onClickSearch}>
-                                        Search Flights &emsp;
-                                        <ArrowRightAltIcon />
-                                    </Button>
+                                    <Link to={'/flightSchedule'} style={{ textDecoration: 'none' }}>
+                                        <Button variant='contained' style={{ borderRadius: 12, backgroundColor: '#4D46FA', width: 200, height: 60, position: 'absolute', right: 100 }} onClick={onClickSearch}>
+                                            Search Flights &emsp;
+                                            <ArrowRightAltIcon />
+                                        </Button>
+                                    </Link>
                                 </Col>
                             </Row>
                         </Col>
